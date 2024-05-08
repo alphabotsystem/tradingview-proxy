@@ -1,0 +1,27 @@
+# Build
+FROM node:alpine AS proxy-builder
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+COPY ./ ./
+RUN rm -f .yarn.lock
+RUN yarn install
+
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+RUN yarn build
+
+# Run
+FROM node:alpine AS runner
+WORKDIR /app
+
+RUN apk add --no-cache chromium chromium-swiftshader xvfb supervisor ttf-freefont font-noto-emoji && rm -rf /var/cache/apk/* /tmp/*
+ENV DISPLAY=":1.0"
+
+COPY --from=proxy-builder /app/.next ./.next
+COPY --from=proxy-builder /app/public ./public
+COPY --from=proxy-builder /app/node_modules ./node_modules
+COPY --from=proxy-builder /app/package.json ./package.json
+COPY --from=proxy-builder /app/next.config.js ./next.config.js
+
+ENTRYPOINT ["yarn", "start"]
