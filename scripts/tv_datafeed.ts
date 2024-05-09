@@ -160,7 +160,7 @@ const Datafeed = (type: "free" | "paid") => ({
 			setTimeout(() => onResult(bars!, { noData: false }), 0)
 		} else {
 			if (symbolInfo.ticker) {
-				fetchBars(symbolInfo.full_name, resolution, "e", type).then(() => {
+				fetchBars(symbolInfo.name, resolution, "e", type).then(() => {
 					window.loaded = true;
 					setTimeout(() => onResult(bars!, { noData: false }), 0)
 				}).catch((err) => {
