@@ -6,7 +6,7 @@ metadata:
   labels:
     app: tradingview-proxy
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: tradingview-proxy
@@ -21,8 +21,8 @@ spec:
         imagePullPolicy: Always
         resources:
           requests:
-            memory: "15Mi"
-            cpu: "2m"
+            memory: "80Mi"
+            cpu: "1m"
         env:
           - name: PRODUCTION
             value: "1"
