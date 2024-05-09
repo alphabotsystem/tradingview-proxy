@@ -87,8 +87,7 @@ const fetchBars = (ticker: string, resolution: string, extended: string, type: "
 		bars = data.data
 		const resolutions = data.symbol.resolutions[0] === res ? [resolution] : data.symbol.resolutions
 		symbol = {
-			name: data.symbol.name,
-			full_name: data.symbol.pro_name,
+			name: data.symbol.pro_name,
 			base_name: data.symbol.base_name,
 			ticker: data.symbol.local_code,
 			description: data.symbol.description,

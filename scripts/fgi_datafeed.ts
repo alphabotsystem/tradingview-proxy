@@ -43,7 +43,6 @@ const Datafeed = () => ({
 		const market = symbolName.startsWith("AM") ? "Crypto market " : "Stock market "
 		setTimeout(() => onResolve({
 			name: "FGI",
-			full_name: market + "Fear & Greed Index",
 			base_name: ["FGI"],
 			ticker: "FGI",
 			description: market + "Fear & Greed Index",
