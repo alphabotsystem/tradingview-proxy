@@ -21,4 +21,7 @@ COPY --from=proxy-builder /app/node_modules ./node_modules
 COPY --from=proxy-builder /app/package.json ./package.json
 COPY --from=proxy-builder /app/next.config.js ./next.config.js
 
+ENV PORT 3000
+EXPOSE 3000
+
 ENTRYPOINT ["yarn", "start"]

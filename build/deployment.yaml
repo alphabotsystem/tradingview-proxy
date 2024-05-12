@@ -37,10 +37,8 @@ kind: Service
 metadata:
   name: tradingview-proxy
   namespace: alpha-bot
-  annotations:
-    cloud.google.com/load-balancer-type: "Internal"
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: tradingview-proxy
   ports:
