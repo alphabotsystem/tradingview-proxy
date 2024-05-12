@@ -29,7 +29,7 @@ spec:
           - name: NODE_ENV
             value: "production"
         ports:
-          - containerPort: 3000
+          - containerPort: 6900
 
 ---
 apiVersion: v1
