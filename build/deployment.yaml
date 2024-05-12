@@ -29,7 +29,7 @@ spec:
           - name: NODE_ENV
             value: "production"
         ports:
-          - containerPort: 6900
+          - containerPort: 80
 
 ---
 apiVersion: v1
@@ -45,5 +45,5 @@ spec:
     app: tradingview-proxy
   ports:
     - protocol: TCP
-      port: 6900
-      targetPort: 6900
+      port: 80
+      targetPort: 80
