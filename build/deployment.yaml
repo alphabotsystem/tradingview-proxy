@@ -43,5 +43,5 @@ spec:
     app: tradingview-proxy
   ports:
     - protocol: TCP
-      port: 6900
+      port: 80
       targetPort: 3000
